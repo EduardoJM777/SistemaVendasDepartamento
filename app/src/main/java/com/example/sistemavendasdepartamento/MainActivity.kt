@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
         val btTelaCadCliente = findViewById<Button>(R.id.btTelaCadCliente)
         val btTelaCadItem = findViewById<Button>(R.id.btTelaCadItem)
         val btTelaListaItens = findViewById<Button>(R.id.btTelaListaItens)
+        val btTelaLancamentoPedidos = findViewById<Button>(R.id.btTelaLancamentoPedidos)
 
 
         btTelaCadCliente.setOnClickListener {
@@ -41,6 +42,11 @@ class MainActivity : ComponentActivity() {
 
         btTelaListaItens.setOnClickListener {
             val intent = Intent(this, ExibicaoItensActivity::class.java)
+            startActivity(intent)
+        }
+
+        btTelaLancamentoPedidos.setOnClickListener {
+            val intent = Intent(this, LancamentoPedidosActivity::class.java)
             startActivity(intent)
         }
 
