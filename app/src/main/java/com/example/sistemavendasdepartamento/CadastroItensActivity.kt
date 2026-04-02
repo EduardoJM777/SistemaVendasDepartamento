@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.ComponentActivity
-import com.example.sistemavendasdepartamento.model.Cliente
-import com.example.sistemavendasdepartamento.repository.ClienteRepository
+import com.example.sistemavendasdepartamento.model.Item
+import com.example.sistemavendasdepartamento.repository.ItemRepository
 
 class CadastroItensActivity: ComponentActivity() {
 
@@ -18,13 +18,14 @@ class CadastroItensActivity: ComponentActivity() {
         val edValUnit = findViewById<EditText>(R.id.edValUnit)
         val btCadastrarItem = findViewById<Button>(R.id.btCadastrarItem)
 
-        btCadastrarCliente.setOnClickListener {
+        btCadastrarItem.setOnClickListener {
 
-            val nome = edNomeCliente.text.toString()
-            val cpf = edCpfCliente.text.toString()
-            val cliente = Cliente(nome, cpf)
+            val codigo = edCodItem.text.toString()
+            val desc = edDescItem.text.toString()
+            val valUnit = edValUnit.text.toString().toDouble()
+            val item = Item(codigo, desc, valUnit)
 
-            ClienteRepository.listaCliente.add(cliente)
+            ItemRepository.listaItem.add(item)
 
             finish()
         }
