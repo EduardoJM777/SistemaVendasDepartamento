@@ -27,6 +27,21 @@
         android:id="@+id/btTelaCadCliente"
         android:drawableLeft="@drawable/ic_add"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Item"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@color/white"
+        android:id="@+id/btTelaCadItem"
+        android:drawableLeft="@drawable/ic_add"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LISTA DE ITENS CADASTRADOS"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@color/white"
+        android:id="@+id/btTelaListaItens"/>
 
 </LinearLayout>

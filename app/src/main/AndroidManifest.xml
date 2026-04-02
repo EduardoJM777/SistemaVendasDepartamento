@@ -15,6 +15,12 @@
             android:name=".CadastroClienteActivity"
             android:exported="false"/>
         <activity
+            android:name=".CadastroItensActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ExibicaoItensActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
