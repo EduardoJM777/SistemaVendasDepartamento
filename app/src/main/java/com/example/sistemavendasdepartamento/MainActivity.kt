@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
         val btTelaCadItem = findViewById<Button>(R.id.btTelaCadItem)
         val btTelaListaItens = findViewById<Button>(R.id.btTelaListaItens)
 
+
         btTelaCadCliente.setOnClickListener {
             val intent = Intent(this, CadastroClienteActivity::class.java)
             startActivity(intent)
