@@ -43,14 +43,12 @@ class ItemAdapter (private val listaItens: List<Item>,
             holder.itemView.setBackgroundColor(Color.TRANSPARENT)
         }
 
-
         holder.itemView.setOnClickListener {
             posicaoSelecionada = position
             notifyDataSetChanged()
 
             onClick?.invoke(itens)
         }
-
 
     }
 

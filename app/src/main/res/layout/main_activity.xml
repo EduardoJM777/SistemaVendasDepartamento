@@ -50,6 +50,7 @@
         android:text="LANÇAMENTO DE PEDIDOS"
         android:backgroundTint="#3F51B5"
         android:textColor="@color/white"
-        android:id="@+id/btTelaLancamentoPedidos"/>
+        android:id="@+id/btTelaLancamentoPedidos"
+        android:drawableLeft="@drawable/ic_add"/>
 
 </LinearLayout>

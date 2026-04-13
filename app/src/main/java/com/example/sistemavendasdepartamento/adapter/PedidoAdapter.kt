@@ -8,9 +8,14 @@
 //import androidx.recyclerview.widget.RecyclerView
 //import com.example.sistemavendasdepartamento.R
 //import com.example.sistemavendasdepartamento.model.Cliente
+//import com.example.sistemavendasdepartamento.model.Item
 //
-//class PedidoAdapter (private val listaClientes: List<Cliente>,
-//                     private val onClick: (Cliente) -> Unit): RecyclerView.Adapter<PedidoAdapter.PedidoViewHolder>() {
+//class PedidoAdapter (private val listaItens: List<Item>,
+//                     private val onItemClick: (Item) -> Unit): RecyclerView.Adapter<PedidoAdapter.PedidoViewHolder>() {
+//
+//    inner class PedidoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+//        val tvValUnit: TextView = view.findViewById(R.id.tvValUnit)
+//    }
 //
 //    private var posicaoSelecionada = -1
 //
@@ -18,19 +23,17 @@
 //        parent: ViewGroup,
 //        viewType: Int
 //    ): PedidoViewHolder {
-//        val view = LayoutInflater.from(parent.context)
-//            .inflate(R.layout.cliente_item_list, parent, false)
+//        val view = LayoutInflater.from(parent.context).inflate(R.layout.)
 //
-//        return PedidoViewHolder(view)
+//        return PedidoViewHolder(binding)
 //    }
 //
 //    override fun onBindViewHolder(
 //        holder: PedidoViewHolder,
 //        position: Int
 //    ) {
-//        val clientes = listaClientes[position]
-//        holder.tvNome.text = clientes.nome
-//        holder.tvCpf.text = clientes.cpf
+//        val itens = listaItens[position]
+//        holder.binding.tvItem.text = item
 //
 //        if (position == posicaoSelecionada) {
 //            holder.itemView.setBackgroundColor(Color.LTGRAY)
@@ -41,17 +44,12 @@
 //        holder.itemView.setOnClickListener {
 //            posicaoSelecionada = position
 //            notifyDataSetChanged()
-//            onClick(clientes)
+//            onItemClick(itens)
 //        }
 //    }
 //
 //    override fun getItemCount(): Int {
-//        return listaClientes.size
-//    }
-//
-//    class PedidoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-//        val tvNome = itemView.findViewById<TextView>(R.id.tvNome)
-//        val tvCpf = itemView.findViewById<TextView>(R.id.tvCpf)
+//        return listaItens.size
 //    }
 //
 //
