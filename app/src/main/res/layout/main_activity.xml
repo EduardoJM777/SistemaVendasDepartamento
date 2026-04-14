@@ -44,4 +44,13 @@
         android:textColor="@color/white"
         android:id="@+id/btTelaListaItens"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LANÇAMENTO DE PEDIDOS"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@color/white"
+        android:id="@+id/btTelaLancamentoPedidos"
+        android:drawableLeft="@drawable/ic_add"/>
+
 </LinearLayout>

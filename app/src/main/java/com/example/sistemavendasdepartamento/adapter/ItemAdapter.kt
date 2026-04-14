@@ -1,5 +1,6 @@
 package com.example.sistemavendasdepartamento.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,10 @@ import com.example.sistemavendasdepartamento.model.Item
 import java.text.NumberFormat
 import java.util.Locale
 
-class ItemAdapter (private val listaItens: List<Item>): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter (private val listaItens: List<Item>,
+                   private val onClick: ((Item) -> Unit)? = null): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+
+    private var posicaoSelecionada = -1
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -32,6 +36,20 @@ class ItemAdapter (private val listaItens: List<Item>): RecyclerView.Adapter<Ite
 
         val formato = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
         holder.tvValUnit.text = formato.format(itens.valorUnitario)
+
+        if (position == posicaoSelecionada) {
+            holder.itemView.setBackgroundColor(Color.LTGRAY)
+        } else {
+            holder.itemView.setBackgroundColor(Color.TRANSPARENT)
+        }
+
+        holder.itemView.setOnClickListener {
+            posicaoSelecionada = position
+            notifyDataSetChanged()
+
+            onClick?.invoke(itens)
+        }
+
     }
 
     override fun getItemCount(): Int {
