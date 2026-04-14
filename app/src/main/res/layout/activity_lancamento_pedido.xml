@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvValUnit"
             android:textSize="20sp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginStart="20dp"/>
     </LinearLayout>
 
     <Button

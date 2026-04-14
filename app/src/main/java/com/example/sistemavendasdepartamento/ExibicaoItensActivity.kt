@@ -22,13 +22,6 @@ class ExibicaoItensActivity: ComponentActivity() {
         rvItens.layoutManager = LinearLayoutManager(this)
         rvItens.adapter = adapterItens
 
-//        val btTelaListaClientes = findViewById<Button>(R.id.btTelaListaClientes)
-//
-//        btTelaListaClientes.setOnClickListener {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//        }
-
     }
 
 
