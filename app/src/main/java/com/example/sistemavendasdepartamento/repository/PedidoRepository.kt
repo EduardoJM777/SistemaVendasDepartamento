@@ -10,4 +10,8 @@ object PedidoRepository {
         return listaPedidos.sumOf { it.valTot }
     }
 
+    fun somaItens(): Int {
+        return listaPedidos.sumOf { it.qtd }
+    }
+
 }
