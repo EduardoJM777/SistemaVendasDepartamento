@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista de Clientes"
+        android:textSize="30sp"
+        android:gravity="center"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:id="@+id/rvClientes"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Cliente"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@color/white"
+        android:id="@+id/btTelaCadCliente"
+        android:drawableStart="@drawable/ic_add"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Item"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@color/white"
+        android:id="@+id/btTelaCadItem"
+        android:drawableStart="@drawable/ic_add"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ITENS CADASTRADOS"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@color/white"
+        android:id="@+id/btTelaListaItens"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LANÇAMENTO DE PEDIDOS"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@color/white"
+        android:id="@+id/btTelaLancamentoPedidos"
+        android:drawableStart="@drawable/ic_add"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PEDIDOS LANÇADOS"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@color/white"
+        android:id="@+id/btTelaPedidos"/>
+
+</LinearLayout>

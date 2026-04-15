@@ -1,47 +1,66 @@
 package com.example.sistemavendasdepartamento
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.sistemavendasdepartamento.ui.theme.SistemaVendasDepartamentoTheme
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.sistemavendasdepartamento.adapter.ClienteAdapter
+import com.example.sistemavendasdepartamento.repository.ClienteRepository
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var adapterClientes: ClienteAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            SistemaVendasDepartamentoTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        setContentView(R.layout.main_activity)
+
+        val rvClientes = findViewById<RecyclerView>(R.id.rvClientes)
+
+        adapterClientes = ClienteAdapter(ClienteRepository.listaCliente)
+
+        rvClientes.layoutManager = LinearLayoutManager(this)
+        rvClientes.adapter = adapterClientes
+
+        val btTelaCadCliente = findViewById<Button>(R.id.btTelaCadCliente)
+        val btTelaCadItem = findViewById<Button>(R.id.btTelaCadItem)
+        val btTelaListaItens = findViewById<Button>(R.id.btTelaListaItens)
+        val btTelaLancamentoPedidos = findViewById<Button>(R.id.btTelaLancamentoPedidos)
+        val btTelaPedidos = findViewById<Button>(R.id.btTelaPedidos)
+
+        btTelaCadCliente.setOnClickListener {
+            val intent = Intent(this, CadastroClienteActivity::class.java)
+            startActivity(intent)
         }
-    }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+        btTelaCadItem.setOnClickListener {
+            val intent = Intent(this, CadastroItensActivity::class.java)
+            startActivity(intent)
+        }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SistemaVendasDepartamentoTheme {
-        Greeting("Android")
+        btTelaListaItens.setOnClickListener {
+            val intent = Intent(this, ExibicaoItensActivity::class.java)
+            startActivity(intent)
+        }
+
+        btTelaLancamentoPedidos.setOnClickListener {
+            val intent = Intent(this, LancamentoPedidosActivity::class.java)
+            startActivity(intent)
+        }
+
+        btTelaPedidos.setOnClickListener {
+            val intent = Intent(this, PedidosActivity::class.java)
+            startActivity(intent)
+        }
+
     }
+
+
+    override fun onResume(){
+        super.onResume()
+        adapterClientes.notifyDataSetChanged()
+    }
+
 }
