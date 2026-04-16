@@ -20,14 +20,22 @@ class CadastroItensActivity: ComponentActivity() {
 
         btCadastrarItem.setOnClickListener {
 
-            val codigo = edCodItem.text.toString()
-            val desc = edDescItem.text.toString()
-            val valUnit = edValUnit.text.toString().toDouble()
-            val item = Item(codigo, desc, valUnit)
+            val codigo = edCodItem.text.toString().trim()
+            val desc = edDescItem.text.toString().trim()
+            val valUnit = edValUnit.text.toString().trim()
 
-            ItemRepository.listaItem.add(item)
-
-            finish()
+            if(codigo.isEmpty() || desc.isEmpty() || valUnit.isEmpty()){
+                edCodItem.error = "Preencher todos os campos"
+                edCodItem.requestFocus()
+            } else if ((valUnit.toDoubleOrNull()?:0.0) <= 0.0){
+                edValUnit.error = "Valor deve ser maior 0"
+            }
+            else{
+                val unit = valUnit.toDoubleOrNull()?:0.0
+                val item = Item(codigo, desc, unit)
+                ItemRepository.listaItem.add(item)
+                finish()
+            }
         }
 
     }
