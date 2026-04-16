@@ -55,6 +55,7 @@ class LancamentoPedidosActivity : ComponentActivity() {
 
             if (clienteSelecionado != null && itemSelecionado != null && qtd > 0){
                 val pedido = Pedido(
+                    numeroPedido = PedidoRepository.gerarNumeroPedido(),
                     cliente = clienteSelecionado!!,
                     item = itemSelecionado!!,
                     qtd = qtd,

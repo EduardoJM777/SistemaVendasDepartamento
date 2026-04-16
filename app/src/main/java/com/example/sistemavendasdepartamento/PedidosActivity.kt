@@ -77,15 +77,35 @@ class PedidosActivity: ComponentActivity() {
         }
 
         btConcluir.setOnClickListener {
+            if (finalizado) {
+                val numeroPedido = PedidoRepository.gerarNumeroPedido()
 
-            if (finalizado){
-                Toast.makeText(this, "Pedido concluido com sucesso!", Toast.LENGTH_SHORT).show()
+                // Limpa a lista de pedidos
+                PedidoRepository.listaPedidos.clear()
+
+                // Exibe o Toast com o número do pedido
+                Toast.makeText(
+                    this,
+                    "Pedido Nº $numeroPedido concluído com sucesso!",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                // Limpa os campos da tela
+                tvValPedido.text = " ${formato.format(0.0)}"
+                tvQtdItens.text = " 0"
+                tvValPag.text = ""
+                tvValLiq.text = ""
+
+                // Atualiza o RecyclerView
+                adapterPedidos.notifyDataSetChanged()
+
+                // Reseta o estado de pagamento
+                finalizado = false
+
             } else {
                 Toast.makeText(this, "Selecione um método de pagamento.", Toast.LENGTH_SHORT).show()
             }
-
         }
-
     }
 
     override fun onResume() {
